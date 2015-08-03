@@ -1,6 +1,6 @@
 # DCFuture
 
-
+Welcome to DCFuture.com, your on-ramp to local DC politics, issues and communities!
 
 **User Stories**
 
