@@ -13,3 +13,96 @@
  *= require_tree .
  *= require_self
  */
+
+ body {
+   font-family:'Georgia', serif;
+   margin: 0px;
+   width: 100%;
+   background: #BF0000;
+ }
+
+
+header {
+  color: white;
+}
+
+.logo {
+  height: 250px;
+  width: 270px;
+}
+
+h1 {
+  display: inline-block;
+  text-align: center;
+  margin: 0;
+  font-size: 8em;
+  line-height: normal;
+}
+
+main {
+  text-align: center;
+}
+
+nav {
+  display: inline;
+  height: 3em;
+  text-align: center;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  box-sizing: border-box;
+}
+
+nav a {
+  display: inline-block;
+  text-decoration: none;
+  border: 1px solid black;
+  vertical-align: middle;
+  margin: .5em;
+  padding: .5em;
+  color: #333333;
+  font-weight: bold;
+  background-color: #ddddff;
+}
+
+nav a:hover {
+ color: #f6f6f6;
+ background-color: #3E0000;
+}
+
+
+input {
+   display: block;
+   margin: 5px 0 20px 0;
+   padding: 9px;
+   font-size: 1em;
+   width: 400px;
+   border: solid 1.5px black;
+   background: #EEEEEE;
+ }
+
+form {
+  margin-top: 2em;
+  text-align: left;
+  margin-left: 30%;
+}
+
+.formbody {
+  display: block;
+  margin: 5px 0 20px 0;
+  padding: 9px;
+  font-size: .9em;
+  width: 400px;
+  height: 150px;
+  border: solid 1px black;
+  background: #EEEEEE;
+}
+
+input[type=submit],
+a.delete{
+  width: auto;
+  padding: 9px 15px;
+  background-color: #666666;
+  border: 0;
+  font-size: 14px;
+  color: #FFFFFF;
+}

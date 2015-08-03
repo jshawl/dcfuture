@@ -1,0 +1,27 @@
+<div class="blogsections">View by Section:</a>
+  <ul>
+    <li><a href="/sections/issues">Issues</a>
+    <li><a href="/sections/elections">Elections</a>
+    <li><a href="/sections/issues">Government</a>
+  </ul>
+</div>
+
+<h2>All Recent Posts</h2>
+
+<div class="post">
+<% @posts.each do |post| %>
+    <div class="post-each">
+    <h4><%= link_to "#{post.title}", post %></h4>
+      <span class="post-user">Posted by <%= @post.user.username %></span>
+      <span><%= post.timestamp %></span>
+
+      <span class="summary"><%= post.summary %></span>
+      <%= link_to "Go To Full Post...", post %>
+
+    <div class="tag">Filed under: <%= post.section %></div>
+
+    <div class="post-edit-delete">
+      <%= link_to "Edit", edit_post_path(post) %></div>
+    </div>
+<% end %>
+</div>

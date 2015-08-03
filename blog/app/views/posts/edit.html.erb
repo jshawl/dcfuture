@@ -1,0 +1,10 @@
+<h2>Edit Post:</h2>
+<h3 class="title-header"><%= @post.title %></h3>
+
+<%= render partial: "form" %>
+
+<div class="delete">
+  <%= form_for(@post, method: :delete) do |f| %>
+    <%= f.submit "Delete Post", class: "delete" %>
+  <% end %>
+</div>

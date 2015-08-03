@@ -1,4 +1,29 @@
 Rails.application.routes.draw do
+root to: "home#index"
+  get '/', to: 'home#index'
+
+  resources :posts do
+    resources :comments
+  end
+  resources :tags
+  resources :users
+
+#authentication
+  get '/sign_in', to: 'users#sign_in'
+  post '/sign_in', to: 'users#sign_in!'
+  get '/sign_up', to: 'users#sign_up'
+  post '/sign_up', to: 'users#sign_up!'
+  get '/sign_out', to: 'users#sign_out'
+
+#sections
+  get '/sections', to: 'sections#index'
+  get '/sections/issues', to: 'sections#issues'
+  get '/sections/elections', to: 'sections#elections'
+  get '/sections/government', to: 'sections#government'
+
+end
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -53,4 +78,3 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-end
