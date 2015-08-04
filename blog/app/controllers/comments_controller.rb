@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  skip_before_action :authenticate, except: [:new, :edit]
 
   def index
     @comments = Comment.all.order(:timestamp).reverse
@@ -28,6 +29,11 @@ class CommentsController < ApplicationController
   def edit
     @post = Post.find(params[:post_id])
     @comment = @post.comments.find( params[:id] )
+    @user = User.find(session[:user]["id"])
+    if @user != @comment.user
+      redirect_to (post_comment_path(@post, @comment))
+      flash[:notice] = "Sorry, you cannot edit another user's comment!"
+    end
   end
 
   def update

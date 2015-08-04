@@ -80,6 +80,10 @@ h2 {
   size: 3em;
 }
 
+h4 {
+  line-height: 0%;
+}
+
 .blogsections {
   display: inline;
 }

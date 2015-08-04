@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  skip_before_action :authenticate, except: [:new, :edit]
 
   def index
     if params[:section]
@@ -26,6 +27,11 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find( params[:id] )
+    @user = User.find(session[:user]["id"])
+    if @user != @post.user
+      redirect_to (post_path(@post))
+      flash[:notice] = "Sorry, you cannot edit another user's post!"
+    end
   end
 
   def update

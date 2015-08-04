@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  skip_before_action :authenticate
+  skip_before_action :authenticate, except: [:new, :edit]
 
 #CRUD functionality
   def index
@@ -69,8 +69,8 @@ class UsersController < ApplicationController
 
   def sign_out
     reset_session
-    flash[:notice] = "You're signed out!"
     redirect_to root_url
+    flash[:notice] = "You're signed out!"
 
   end
 
