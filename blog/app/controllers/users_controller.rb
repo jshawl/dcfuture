@@ -54,7 +54,7 @@ class UsersController < ApplicationController
     if !@user
       message = "This user doesn't exist!"
     elsif !BCrypt::Password.new(@user.password_digest).is_password?(params[:password])
-      message = "Your password's wrong!"
+      message = "Sorry, wrong password!"
     else
       message = "You're signed in, #{@user.username}!"
       cookies[:username] = {

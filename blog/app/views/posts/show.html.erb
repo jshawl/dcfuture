@@ -3,18 +3,17 @@
 <div class="post">
   <div class="post-header">
     <span class="post-user">Posted by&nbsp;</span><%= @user.username %></span>
-    <span>on <%= @post.date_posted %></span>
+    <span>on <%= @post.timestamp %></span>
   </div>
   <div class="edit">
     <%= link_to "Edit", edit_post_path %></div>
 
   <div class="content">
+    <span id="summary"><%= @post.summary %></span>
     <span class="body"><%= @post.body %></span>
   </div>
 
   <div class="section">Filed Under: <%= @post.section %></div>
-  <div class="tags">Tags: <%= @post.tags %></div>
-  <%= link_to "Edit", edit_post_path %>
 </div>
 
   <h3>Comments

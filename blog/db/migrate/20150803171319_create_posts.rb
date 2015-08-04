@@ -7,6 +7,7 @@ class CreatePosts < ActiveRecord::Migration
       t.string :upload_url
       t.string :timestamp
       t.references :user, index: true, foreign_key: true
+      t.string :section
     end
   end
 end

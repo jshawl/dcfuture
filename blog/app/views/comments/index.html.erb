@@ -1,0 +1,9 @@
+<h2>Recent Comments</h2>
+<ul>
+  <% @comments.each do |comment| %>
+    <li>
+      <%= link_to "#{comment.title} on #{@post.title}", post_comment_path(@post, comment) %>
+      <div class="timestamp">Commented on <%= comment.timestamp %> by <%= @user.username %></div>
+    </li>
+  <% end %>
+</ul>

@@ -16,10 +16,6 @@ root to: "home#index"
 
 #sections
   get '/sections', to: 'sections#index'
-  get '/sections/issues', to: 'sections#issues'
-  get '/sections/elections', to: 'sections#elections'
-  get '/sections/government', to: 'sections#government'
-  get '/sections/DC', to: 'sections#dc'
 
 end
 

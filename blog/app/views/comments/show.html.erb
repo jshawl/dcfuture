@@ -1,0 +1,11 @@
+<h2><%= @comment.title %>
+
+<%= link_to "(EDIT)", edit_post_comment_path(@post, @comment) %></h2>
+
+<h3>Submitted by: <%= @comment.user %> on <%= @comment.timestamp %>
+  in response to <%= link_to "#{@post_user.username}", @post %></h3>
+
+<div><%= @comment.body %></div>
+
+<div class="editbutton"><%= link_to "Edit Comment", edit_post_comment_path(@post, @comment) %>
+</div>

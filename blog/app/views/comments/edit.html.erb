@@ -1,0 +1,9 @@
+<h2>Edit Comment:</h2>
+<h3 class="title-header"><%= @comment.title %></h3>
+
+<%= render partial: "form" %>
+
+<div class="delete">
+  <%= form_for([@post, @comment], method: :delete) do |f| %>
+    <%= f.submit "Delete Comment", class: "delete" %>
+  <% end %>

@@ -8,46 +8,48 @@
 </head>
 <body>
   <header>
-  <div><%= image_tag "http://dcfuture.com/wp-content/uploads/2014/03/DCFutureLogo1.png", alt: "DCFuture logo", class: "logo" %>
-    <h1 class="headline">Blog</h1></div>
-    <nav class="main-nav">
-      <%= link_to "About DCFuture", "http://dcfuture.com/about" %>
-      <%= link_to "Events", "http://dcfuture.com/events/" %>
-      <%= link_to "Links", "http://dcfuture.com/links/" %>
-      <%= link_to "Contact", "http://dcfuture.com/contact/" %>
-    </nav>
-    <ul class="social-icons">
-    		<li>
-    		<a href="https://www.facebook.com/pages/DC-Future/1412989265627187" target="_blank">
-    			<div>
-    				<img src="http://dcfuture.com/wp-content/themes/mineral/images/icons/facebook.png" alt="">
-    			</div>
-    		</a>
-    	</li>
-    		<li>
-    		<a href="https://twitter.com/DC_Future" target="_blank">
-    			<div>
-    				<img src="http://dcfuture.com/wp-content/themes/mineral/images/icons/twitter.png" alt="">
-    			</div>
-    		</a>
-    	</li>
-    		</ul>
-    <nav class="blog-nav">
-      <%= link_to "All Posts", posts_path %>
-      <%= link_to "New Post", new_post_path %>
-      <%= link_to "Sections", "/sections" %>
-      <% if session[:user] %>
-        <a href="/users/profile">My Profile</a>
-        <a href="/sign_out"><%= session[:user]["username"] %>: Sign Out</a></h2>
-      <% else %>
-        <a href="/sign_up">Sign Up</a>
-        <a href="/sign_in">Sign In</a>
-      <% end %>
-    </nav>
+    <div><%= image_tag "http://dcfuture.com/wp-content/uploads/2014/03/DCFutureLogo1.png", alt: "DCFuture logo", class: "logo" %>
+      <h1 class="headline">Blog</h1></div>
+      <nav class="main-nav">
+        <%= link_to "About DCFuture", "http://dcfuture.com/about" %>
+        <%= link_to "Events", "http://dcfuture.com/events/" %>
+        <%= link_to "Links", "http://dcfuture.com/links/" %>
+        <%= link_to "Contact", "http://dcfuture.com/contact/" %>
+      </nav>
+      <ul class="social-icons">
+      		<li>
+      		<a href="https://www.facebook.com/pages/DC-Future/1412989265627187" target="_blank">
+      			<div>
+      				<img src="http://dcfuture.com/wp-content/themes/mineral/images/icons/facebook.png" alt="">
+      			</div>
+      		</a>
+      	</li>
+      		<li>
+      		<a href="https://twitter.com/DC_Future" target="_blank">
+      			<div>
+      				<img src="http://dcfuture.com/wp-content/themes/mineral/images/icons/twitter.png" alt="">
+      			</div>
+      		</a>
+      	</li>
+      		</ul>
+      <nav class="blog-nav">
+        <%= link_to "All Posts", posts_path %>
+        <%= link_to "New Post", new_post_path %>
+        <%= link_to "Sections", "/sections" %>
+        <% if session[:user] %>
+          <a href="/users/profile">My Profile</a>
+          <a href="/sign_out"><%= session[:user]["username"] %>: Sign Out</a></h2>
+        <% else %>
+          <a href="/sign_up">Sign Up</a>
+          <a href="/sign_in">Sign In</a>
+        <% end %>
+      </nav>
   </header>
-<main>
-<h2><%= flash[:notice] %></h2>
-<%= yield %>
-</main>
+  <main>
+    <h2><%= flash[:notice] %></h2>
+    <div class="content">
+    <%= yield %>
+    </div>
+  </main>
 </body>
 </html>

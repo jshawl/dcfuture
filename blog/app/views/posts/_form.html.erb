@@ -1,4 +1,4 @@
-<%= form_for(@post) do |f| %>
+<%= form_for([@user, @post]) do |f| %>
 
   <%= f.label :title %>
   <%= f.text_field :title, placeholder: "Title"  %>
@@ -7,10 +7,19 @@
   <%= f.text_field :summary, placeholder: "Summary"  %>
 
   <%= f.label :body %>
-  <%= f.text_area :body , placeholder: "Write the Body of Your Post Here", class: "formbody" %>
+  <%= f.text_area :body, placeholder: "Write the Body of Your Post Here", class: "formbody" %>
   </span>
   <%= f.label :upload_url, "Upload URL" %>
   <%= f.text_field :upload_url, placeholder: "Upload a File" %>
 
+
+  <%= f.radio_button :section, "Issues", class: 'sectionbuttons' %>
+  <%= f.label :section, "Issues", :value => 'Issues' %>
+  <%= f.radio_button :section, "Elections", class: 'sectionbuttons' %>
+  <%= f.label :section, "Elections", :value => 'Elections' %>
+  <%= f.radio_button :section, "Government", class: 'sectionbuttons' %>
+  <%= f.label :section, "Government", :value => 'Government' %>
+  <%= f.radio_button :section, "DC", class: 'sectionbuttons' %>
+  <%= f.label :section, "DC", :value => 'DC' %>
   <%= f.submit "Post Me!" %>
 <% end %>

@@ -31,9 +31,9 @@ header {
   width: 270px;
 }
 
-h1 {
+.headline {
   display: inline-block;
-  text-align: center;
+  vertical-align: text-bottom;
   margin: 0;
   font-size: 8em;
   line-height: normal;
@@ -69,6 +69,26 @@ nav a:hover {
  background-color: #3E0000;
 }
 
+.content {
+  width: 70%;
+  margin: auto;
+  background-color: white;
+}
+
+h2 {
+  font-weight: bold;
+  size: 3em;
+}
+
+.blogsections {
+  display: inline;
+}
+
+#summary {
+  display: block;
+  padding: 2em;
+  border-bottom-style: groove;
+}
 
 input {
    display: block;
@@ -95,6 +115,10 @@ form {
   height: 150px;
   border: solid 1px black;
   background: #EEEEEE;
+}
+
+.sectionbuttons {
+  display: inline;
 }
 
 input[type=submit],
