@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 root to: "home#index"
-  get '/', to: 'home#index'
 
   resources :posts do
     resources :comments
@@ -20,6 +19,7 @@ root to: "home#index"
   get '/sections/issues', to: 'sections#issues'
   get '/sections/elections', to: 'sections#elections'
   get '/sections/government', to: 'sections#government'
+  get '/sections/DC', to: 'sections#dc'
 
 end
 

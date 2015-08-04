@@ -1,4 +1,4 @@
-class SectionsController < ActionController::Base
-  
+class SectionsController < ApplicationController
+
 
 end
