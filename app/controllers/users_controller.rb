@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
 #CRUD functionality
   def index
+    @users = User.all.order(:id).reverse
   end
 
   def new
@@ -23,11 +24,10 @@ class UsersController < ApplicationController
   def destroy
   end
 
-
+#authentication
   def sign_up
   end
 
-#authentication
   def sign_up!
     user = User.new(
       username: params[:username],
@@ -37,11 +37,16 @@ class UsersController < ApplicationController
       message = "Your passwords don't match!"
       redirect_to action: :sign_up
     elsif user.save
-      message = "Your account has been created!"
-      redirect_to action: :sign_in
+      cookies[:username] = {
+        value: @user.username,
+        expires: 100.years.from_now
+      }
+      session[:user] = @user
+      message = "Your account has been created, #{@user.username}!"
+      redirect_to (new_user_path(@user))
     else
       message = "Your account couldn't be created. Did you enter a unique username and password?"
-      redirect_to action: :sign_up
+      redirect_to (action: :sign_up)
     end
     flash[:notice] = message
   end

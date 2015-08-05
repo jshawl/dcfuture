@@ -1,1 +1,16 @@
-<h2>Placeholder for Users Index Page</h2>
+<h2>DCFuture Users</h2>
+
+<div class="usersections">View by Type:
+  <%= link_to "Show All", users_path %>
+  <a href="/users?dc_voter=Yes">DC Voters Only</a>
+</div>
+
+<div class="user">
+<% @users.each do |user| %>
+    <div class="user-each">
+    <h3><%= link_to "#{user.username}", user %></h3>
+      <span>Joined on <%= user.join_date %></span>
+  <% end %>
+  </div>
+
+<a href="/sign_up">Sign Up to Join the DCFuture Community!</a>

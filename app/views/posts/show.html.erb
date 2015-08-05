@@ -2,7 +2,7 @@
 
 <div class="post">
   <div class="post-header">
-    <span class="post-user">Posted by&nbsp;</span><%= @user.username %></span>
+    <span class="post-user">Posted by&nbsp;</span><%= link_to "#{@user.username}", @user %></span>
     <span>on <%= @post.timestamp %></span>
   </div>
   <div class="edit">

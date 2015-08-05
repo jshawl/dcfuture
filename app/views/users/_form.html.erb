@@ -1,0 +1,32 @@
+<%= form_for([@user, @post]) do |f| %>
+
+  <h4>Are You a DC Voter?</h4>
+  <%= f.radio_button :dc_voter, "Yes" %>
+  <%= f.label :dc_voter, "Yes", :value => 'Yes' %>
+  <%= f.radio_button :dc_voter, "No" %>
+  <%= f.label :dc_voter, "No", :value => 'No' %>
+
+  <%= f.label :ward %>
+  <%= f.number_field :ward, min: "1", max: "8", placeholder: "Ward" %>
+
+  <%= f.label :full_name %>
+  <%= f.text_field :full_name, placeholder: "Enter Your Real Name"  %>
+
+  <%= f.label :email, "E-mail Address" %>
+  <%= f.text_field :email, placeholder: "Enter Your E-mail"  %>
+
+  <%= f.label :age, "Age (optional)" %>
+  <%= f.text_field :age, placeholder: "Enter Your Age"  %>
+
+  <%= f.label :zip, "Zip Code" %>
+  <%= f.text_area :zip, placeholder: "Enter Your Zip Code" %>
+
+  <%= f.label :occupation_type, "Where Do You Work?" %>
+  <%= f.text_field :occupation_type, placeholder: "Occupation"  %>
+
+  <%= f.label :upload_pic, "Picture URL" %>
+  <%= f.text_field :upload_pic, placeholder: "Link to an Online Photo of You" %>
+
+  <%= f.submit "Create My Profile!" %>
+
+<% end %>

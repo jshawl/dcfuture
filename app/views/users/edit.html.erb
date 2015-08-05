@@ -1,0 +1,10 @@
+<h2>Update Your Profile, <%= @user.username %></h2>
+
+<%= render partial: "form" %>
+
+<div class="delete">
+  <%= form_for(@user, method: :delete) do |f| %>
+    <%= f.submit "Delete Account", class: "delete" %>
+  <% end %>
+</div>
+<p class="warning">WARNING: DELETING YOUR ACCOUNT CANNOT BE REVERSED<p>
