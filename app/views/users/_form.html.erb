@@ -1,4 +1,4 @@
-<%= form_for([@user, @post]) do |f| %>
+<%= form_for([@user]) do |f| %>
 
   <h4>Are You a DC Voter?</h4>
   <%= f.radio_button :dc_voter, "Yes" %>
@@ -19,7 +19,7 @@
   <%= f.text_field :age, placeholder: "Enter Your Age"  %>
 
   <%= f.label :zip, "Zip Code" %>
-  <%= f.text_area :zip, placeholder: "Enter Your Zip Code" %>
+  <%= f.text_field :zip, placeholder: "Enter Your Zip Code" %>
 
   <%= f.label :occupation_type, "Where Do You Work?" %>
   <%= f.text_field :occupation_type, placeholder: "Occupation"  %>

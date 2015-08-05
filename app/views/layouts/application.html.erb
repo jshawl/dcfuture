@@ -33,16 +33,17 @@
       	</li>
       		</ul>
       <nav class="blog-nav">
-        <%= link_to "All Posts", posts_path %>
-        <%= link_to "New Post", new_post_path %>
-        <%= link_to "Sections", "/sections" %>
+        <%= link_to "Members", users_path %>
         <% if session[:user] %>
-          <a href="/users/profile">My Profile</a>
+          <a href="/profile">My Profile</a>
           <a href="/sign_out"><%= session[:user]["username"] %>: Sign Out</a></h2>
         <% else %>
           <a href="/sign_up">Sign Up</a>
           <a href="/sign_in">Sign In</a>
         <% end %>
+        <%= link_to "All Posts", posts_path %>
+        <%= link_to "New Post", new_post_path %>
+        <%= link_to "Tags", tags_path %>
       </nav>
   </header>
   <main>

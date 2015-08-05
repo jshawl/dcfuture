@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  skip_before_action :authenticate, except: [:new, :edit]
+  before_action :authenticate, only: [:new, :edit]
 
   def index
     if params[:section]
@@ -14,7 +14,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @user = User.find(session[:user]["id"])
+    @user = current_user
     @post = @user.posts.create!( post_params )
     @post.update( timestamp: Time.now.strftime("%b %e %Y, %l:%M%P") )
     redirect_to (post_path(@post))
@@ -27,8 +27,8 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find( params[:id] )
-    @user = User.find(session[:user]["id"])
-    if @user != @post.user
+    @user = current_user
+      if @user != @post.user
       redirect_to (post_path(@post))
       flash[:notice] = "Sorry, you cannot edit another user's post!"
     end
@@ -53,5 +53,10 @@ class PostsController < ApplicationController
     def post_params
       params.require(:post).permit(:title, :summary, :body, :upload_url, :user, :section)
     end
+
+    def current_user
+      @current_user = User.find(session[:user]["id"]) if session[:user]
+    end
+
 
 end

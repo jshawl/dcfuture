@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  skip_before_action :authenticate, except: [:new, :edit]
+  before_action :authenticate, only: [:new, :create, :edit, :update, :destroy]
 
   def index
     @comments = Comment.all.order(:timestamp).reverse
@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
   def create
     @post = Post.find(params[:post_id])
     @comment = @post.comments.create( comment_params )
-    @comment.update( user: User.find(session[:user]["id"]))
+    @comment.update( user: current_user)
     @comment.update( timestamp: Time.now.strftime("%b %e %Y, %l:%M%P") )
     redirect_to post_comment_path(@post, @comment)
   end
@@ -29,7 +29,7 @@ class CommentsController < ApplicationController
   def edit
     @post = Post.find(params[:post_id])
     @comment = @post.comments.find( params[:id] )
-    @user = User.find(session[:user]["id"])
+    @user = current_user
     if @user != @comment.user
       redirect_to (post_comment_path(@post, @comment))
       flash[:notice] = "Sorry, you cannot edit another user's comment!"

@@ -4,6 +4,7 @@ group :production do
   gem 'rails_12factor'
 end
 
+gem 'pry'
 gem 'ckeditor'
 
 gem 'bcrypt'

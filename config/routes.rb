@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 root to: "home#index"
 
+  get '/profile', to: 'home#profile'
+
   resources :posts do
     resources :comments
   end
@@ -13,9 +15,6 @@ root to: "home#index"
   get '/sign_up', to: 'users#sign_up'
   post '/sign_up', to: 'users#sign_up!'
   get '/sign_out', to: 'users#sign_out'
-
-#sections
-  get '/sections', to: 'sections#index'
 
 end
 

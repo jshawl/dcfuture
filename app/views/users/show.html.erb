@@ -3,17 +3,19 @@
 <img class ="profile-pic" src="<%= @user.upload_pic %>" alt="No Pic">
 
 <div class="profile">
-    <span>Member since <%= @user.join_date %></span>
-  </div>
-  <%= if @user = User.find(session[:user]["id"]) %>
-    <%= link_to "Edit Profile", edit_user_path %></div>
-  <% end %>
+  <span>Member since <%= @user.join_date %></span>
 
-  <%= if @user.dc_voter = "Yes" %>
-    <span id="ward">Ward <%= @user.ward %> Voter</span>
-  <%= else "Not a DC Voter" %>
+  <% if @user == @current_user %>
+    <%= link_to "Edit Profile", edit_user_path %>
   <% end %>
-  <span id="fullname"><%= @user.full_name.capitalize %></span>
+  <span id="ward">
+  <% if @user.dc_voter == "Yes" %>
+    <div>Ward <%= @user.ward %> Voter</div>
+  <% else %>
+    <div>Not a DC Voter</div>
+  <% end %>
+  </span>
+  <span id="fullname"><%= @user.full_name.split.map(&:capitalize).join(' ') %></span>
   <span id="email"><%= @user.email %></span>
   <span id="job"><%= @user.occupation_type %></span>
   <span id="age"><%= @user.age %></span>
@@ -22,14 +24,16 @@
   <div class="tags">Interests: <%= @user.tags %></div>
 </div>
 
-  <h2>Posts
-  <%= if @user = User.find(session[:user]["id"]) %>
-    <%= link_to "(Add New Post)", new_post_comment_path(@post) %>
-  <% end %>
+<h2>Posts
+<% if @user == @current_user %>
+  <%= link_to "(Add New Post)", new_post_path %>
+<% end %>
 </h2>
 <% @posts.each do |post| %>
-    <div class="post-each">
-    <h3><%= link_to "#{post.title}", post %></h3>
-      <span><%= post.timestamp %></span>
-      <span class="summary"><%= post.summary %></span>
-      <%= link_to "Go To Full Post...", post %>
+  <div class="post-each">
+  <h3><%= link_to "#{post.title}", post %></h3>
+    <span><%= post.timestamp %></span>
+    <span class="summary"><%= post.summary %></span>
+    <%= link_to "Go To Full Post...", post %>
+  </div>
+<% end %>

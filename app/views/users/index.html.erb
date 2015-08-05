@@ -10,7 +10,10 @@
     <div class="user-each">
     <h3><%= link_to "#{user.username}", user %></h3>
       <span>Joined on <%= user.join_date %></span>
+    </div>
   <% end %>
-  </div>
+</div>
 
-<a href="/sign_up">Sign Up to Join the DCFuture Community!</a>
+<% if !session[:user] %>
+  <a href="/sign_up">Sign Up to Join the DCFuture Community!</a>
+<% end %>
