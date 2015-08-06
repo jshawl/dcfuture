@@ -21,7 +21,7 @@
   <span id="age"><%= @user.age %></span>
   <span id="zip"><%= @user.zip %></span>
 
-  <div class="tags">Interests: <%= @user.tags %></div>
+  <div class="tags">Interests: <%= raw @user.tag_list.map{ |t| link_to t, tag_path(t)}.join(', ') %></div>
 </div>
 
 <h2>Posts

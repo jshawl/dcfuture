@@ -5,6 +5,8 @@ class UsersController < ApplicationController
   def index
     if params[:dc_voter]
       @users = User.where(:dc_voter => params[:dc_voter])
+    elsif params[:tag]
+      @users = User.tagged_with(params[:tag])
     else
       @users = User.all.order(:id).reverse
     end
@@ -111,7 +113,7 @@ class UsersController < ApplicationController
 
   private
     def user_params
-      params.require(:user).permit(:username, :password_digest, :full_name, :email, :occupation_type, :age, :dc_voter, :zip, :ward, :upload_pic)
+      params.require(:user).permit(:username, :password_digest, :full_name, :email, :occupation_type, :age, :dc_voter, :zip, :ward, :upload_pic, :tag_list)
     end
 
 

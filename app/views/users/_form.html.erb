@@ -27,6 +27,11 @@
   <%= f.label :upload_pic, "Picture URL" %>
   <%= f.text_field :upload_pic, placeholder: "Link to an Online Photo of You" %>
 
+  <div class="field">
+    <%= f.label :tag_list, "Tags (separated by commas)" %><br />
+    <%= f.text_field :tag_list %>
+  </div>
+
   <%= f.submit "Create My Profile!" %>
 
 <% end %>

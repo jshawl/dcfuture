@@ -4,6 +4,7 @@ group :production do
   gem 'rails_12factor'
 end
 
+gem 'acts-as-taggable-on', '~> 3.4'
 gem 'pry'
 gem 'ckeditor'
 
