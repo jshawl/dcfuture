@@ -51,7 +51,7 @@ class PostsController < ApplicationController
 # workaround to be able to post new post
   private
     def post_params
-      params.require(:post).permit(:title, :summary, :body, :upload_url, :user, :section)
+      params.require(:post).permit(:title, :summary, :body, :upload_url, :user, :section, :name, :post_tag_list)
     end
 
     def current_user

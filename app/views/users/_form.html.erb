@@ -28,8 +28,8 @@
   <%= f.text_field :upload_pic, placeholder: "Link to an Online Photo of You" %>
 
   <div class="field">
-    <%= f.label :tag_list, "Interests (separated by commas)" %><br />
-    <%= f.text_field :tag_list, value: @user.tag_list.to_s %>
+    <%= f.label :user_tag_list, "Interests (separated by commas)" %><br />
+    <%= f.text_field :user_tag_list, value: @user.user_tag_list.to_s %>
   </div>
 
   <%= f.submit "Create My Profile!" %>

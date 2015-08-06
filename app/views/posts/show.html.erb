@@ -16,6 +16,9 @@
   <div class="section">Filed Under: <%= @post.section %></div>
 </div>
 
+<div class="tags">Tags: <%= raw @post.tags.map{ |t| link_to t.name, tag_path(t)}.join(', ') %></div>
+</div>
+
   <h3>Comments
   <%= link_to "(Add New Comment)", new_post_comment_path(@post) %></h3>
 

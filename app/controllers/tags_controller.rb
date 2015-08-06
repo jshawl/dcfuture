@@ -7,7 +7,7 @@ class TagsController < ApplicationController
   def show
     @tag = Tag.find(params[:id])
     @users = @tag.users
-    # @posts = @tag.posts
+    @posts = @tag.posts
   end
 
   def new
@@ -27,6 +27,6 @@ class TagsController < ApplicationController
 
   private
     def tag_params
-      params.require(:tag).permit(:name, :tag_list)
+      params.require(:tag).permit(:name, :user_tag_list, :post_tag_list)
     end
 end

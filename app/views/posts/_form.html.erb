@@ -22,5 +22,10 @@
   <%= f.radio_button :section, "DC", class: 'sectionbuttons' %>
   <%= f.label :section, "DC", :value => 'DC' %>
 
+  <div class="field">
+    <%= f.label :post_tag_list, "Tags (separated by commas)" %><br />
+    <%= f.text_field :post_tag_list, value: @post.post_tag_list.to_s %>
+  </div>
+
   <%= f.submit "Post Me!" %>
 <% end %>
