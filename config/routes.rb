@@ -3,7 +3,7 @@ root to: "home#index"
 
   get '/profile', to: 'home#profile'
   get 'tags', to: 'tags#index'
-  get 'tags/:tag', to: 'users#index', as: :tag
+  get 'tags/:tag', to: 'tags#show'
 
   resources :posts do
     resources :comments

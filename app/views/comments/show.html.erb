@@ -3,7 +3,7 @@
 <h4>Submitted by: <%= @comment.user.username %> on <%= @comment.timestamp %></h4>
 <h4>in response to <%= link_to "#{@post.title}", @post %> by <%= @post_user.username %></h4>
 
-<div><%= @comment.body %></div>
+<div><%= raw(@comment.body) %></div>
 
 <div class="editbutton"><%= link_to "Edit Comment", edit_post_comment_path(@post, @comment) %>
 </div>

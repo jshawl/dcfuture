@@ -10,7 +10,7 @@
 
   <div class="content">
     <span id="summary"><%= @post.summary %></span>
-    <span class="body"><%= @post.body %></span>
+    <span class="body"><%= raw(@post.body) %></span>
   </div>
 
   <div class="section">Filed Under: <%= @post.section %></div>
