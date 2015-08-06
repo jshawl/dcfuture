@@ -183,6 +183,16 @@ input {
    background: #EEEEEE;
  }
 
+select {
+  display: inline;
+  margin: 5px 0 20px 0;
+  padding: 9px;
+  font-size: 1em;
+  width: 200px;
+  border: solid 1.5px black;
+  background: #EEEEEE;
+}
+
 form {
   margin-top: 2em;
   text-align: left;
