@@ -2,30 +2,33 @@
 
 <div class="post">
   <div class="post-header">
-    <span class="post-user">Posted by&nbsp;</span><%= link_to "#{@user.username}", @user %></span>
+    <span class="post-user">Posted by&nbsp;<%= link_to "#{@user.username}", @user %></span>
     <span>on <%= @post.timestamp %></span>
   </div>
+  <% if @user == @current_user %>
   <div class="edit">
     <%= link_to "Edit", edit_post_path %></div>
+  <% end %>
 
-  <div class="content">
+  <div class="postcontent">
     <span id="summary"><%= @post.summary %></span>
-    <span class="body"><%= raw(@post.body) %></span>
+    <span class="postbody"><%= raw(@post.body) %></span>
   </div>
 
   <div class="section">Filed Under: <%= @post.section %></div>
 </div>
 
 <div class="tags">Tags: <%= raw @post.tags.map{ |t| link_to t.name, tag_path(t)}.join(', ') %></div>
-</div>
 
   <h3>Comments
-  <%= link_to "(Add New Comment)", new_post_comment_path(@post) %></h3>
+  <% if session[:user] %>
+  <%= link_to "(Add New Comment)", new_post_comment_path(@post) %>
+  <% end %></h3>
 
   <ul>
     <% @post.comments.each do |comment| %>
       <li>
         <div><%= link_to "#{comment.title}", post_comment_path(@post, comment) %></div>
-        <div><%= comment.body %></div>
+        <div><%= raw(comment.body) %></div>
       </li>
     <% end %>

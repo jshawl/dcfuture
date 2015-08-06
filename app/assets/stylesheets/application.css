@@ -125,6 +125,14 @@ nav a:hover {
   box-sizing: border-box;
   min-height: 50em;
   text-align: center;
+  padding: 1em;
+}
+
+.postcontent {
+  text-align: justify;
+  width: 80%;
+  margin: auto;
+  border-bottom-style: groove;
 }
 
 @media screen and (min-width:600px) {
@@ -169,7 +177,14 @@ h4 {
 #summary {
   display: block;
   padding: 2em;
+  font-size: 1.2em;
   border-bottom-style: groove;
+  text-align: center;
+  margin-bottom: 1.5em;
+}
+
+.section {
+  margin-top: 1.5em;
 }
 
 input {
