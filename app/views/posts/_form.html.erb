@@ -12,15 +12,9 @@
   <%= f.label :upload_url, "Upload URL" %>
   <%= f.text_field :upload_url, placeholder: "Upload a File" %>
 
-  <h4>Choose a Section:</h4>
-  <%= f.radio_button :section, "Issues", class: 'sectionbuttons' %>
-  <%= f.label :section, "Issues", :value => 'Issues' %>
-  <%= f.radio_button :section, "Elections", class: 'sectionbuttons' %>
-  <%= f.label :section, "Elections", :value => 'Elections' %>
-  <%= f.radio_button :section, "Government", class: 'sectionbuttons' %>
-  <%= f.label :section, "Government", :value => 'Government' %>
-  <%= f.radio_button :section, "DC", class: 'sectionbuttons' %>
-  <%= f.label :section, "DC", :value => 'DC' %>
+
+  <%= f.label :section, "Choose a Section" %>
+  <%= f.select :section, [['Issues','issues'],['Elections','elections'],['Government','government'],['DC', 'dc']], include_blank: true %>
 
   <div class="field">
     <%= f.label :post_tag_list, "Tags (separated by commas)" %><br />

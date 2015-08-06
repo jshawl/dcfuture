@@ -24,8 +24,8 @@
 
 header {
   color: white;
-  display: inline-flex;
-  align-items: flex-end;
+  display: inline-block;
+  position: fixed;
 }
 
 .logo {
@@ -34,7 +34,7 @@ header {
 }
 
 .headline {
-  display: inline-block;
+  display: inline-flex;
   vertical-align: text-bottom;
   margin: 0;
   font-size: 8em;
@@ -45,50 +45,65 @@ header {
   margin-left: 50px;
   margin-right: 50px;
   border: 2px solid black;
+}
+
+.main-nav a {
+  display: inline;
+  height: 3em;
+  background-color: #ffffff;
+  border: 1px solid black;
+  text-align: center;
+  margin-bottom: 2em;
+}
+
+.social-icons img {
 
 }
 
 .social-icons a {
   display: inline-flex ;
   margin-bottom: 2em;
+  border: 1px solid black;
+  height: 3em;
 }
 
-main {
-  text-align: center;
+.container {
+  position: relative;
 }
 
 .blog-nav {
-  display: block;
+  float: left;
+  display: inline-block;
   width: 20%;
-  height: 100%;
+  position: fixed;
   background: #e6e6e6;
+  border: 1px solid black;
   padding: 10px;
+  margin-top: 2em;
+  margin-left: 10px;
+  box-sizing: border-box;
 }
 
 .blog-nav a {
-  display: block;
-  background: #BF0000;
-  color: white;
+  display: flex;
+  color: #BF0000;
+  font-size: 1.3em;
+  text-align: center;
+  box-sizing: border-box;
 }
 
 nav {
-  display: inline;
-  height: 3em;
-  text-align: center;
-  margin-bottom: 2em;
   box-sizing: border-box;
 }
 
 nav a {
   display: inline-block;
   text-decoration: none;
-  border: 1px solid black;
   vertical-align: middle;
-  margin: .5em 2em .5em 1em;
-  padding: 1em;
+  margin: .5em 2em .5em 0;
+  padding: .8em;
   color: #333333;
   font-weight: bold;
-  background-color: #ffffff;
 }
 
 nav a:hover {
@@ -96,11 +111,37 @@ nav a:hover {
  background-color: #5E0000;
 }
 
+.clearfix {
+  overflow: auto;
+}
+
 .content {
+  display: inline-block;
+  position: ;
   width: 65%;
   margin: 0 10% 0 25%;
   background-color: white;
   color: #5E0000;
+  border: 2px solid black;
+  box-sizing: border-box;
+  min-height: 30em;
+  text-align: center;
+}
+
+@media screen and (min-width:600px) {
+  .blog-nav {
+    float: left;
+    width: 20%;
+  }
+  .content {
+    margin-left: 25%;
+  }
+}
+
+@media screen and (max-width:599px) {
+  nav li {
+    display: inline;
+  }
 }
 
 h2 {
@@ -114,6 +155,16 @@ h4 {
 
 .blogsections {
   display: inline;
+}
+
+.three-column {
+  padding: 1em;
+  -moz-column-count: 3;
+  -moz-column-gap: 1em;
+  -webkit-column-count: 3;
+  -webkit-column-gap: 1em;
+  column-count: 3;
+  column-gap: 1em;
 }
 
 #summary {

@@ -1,6 +1,8 @@
 <h2>Tags</h2>
 
+<div class="three-column">
 <% @tags.each do |tag| %>
     <div class="tag-each">
     <h3><%= link_to "#{tag.name}", tag %></h3>
 <% end %>
+</div>
