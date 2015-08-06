@@ -2,5 +2,5 @@
 
 <% @tags.each do |tag| %>
     <div class="tag-each">
-    <h3><%= link_to "#{tag.name}", "tags/#{tag.name}" %></h3>
+    <h3><%= link_to "#{tag.name}", tag %></h3>
 <% end %>

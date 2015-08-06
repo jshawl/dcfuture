@@ -2,13 +2,14 @@ Rails.application.routes.draw do
 root to: "home#index"
 
   get '/profile', to: 'home#profile'
-  get 'tags', to: 'tags#index'
-  get 'tags/:tag', to: 'tags#show'
+  # get 'tags', to: 'tags#index'
+  # get 'tags/:tag', to: 'tags#show'
 
   resources :posts do
     resources :comments
   end
   resources :users
+  resources :tags
 
 #authentication
   get '/sign_in', to: 'users#sign_in'

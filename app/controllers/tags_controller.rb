@@ -5,9 +5,28 @@ class TagsController < ApplicationController
   end
 
   def show
-    @tag = Tag.find_by(params[:name])
-    @users = User.tagged_with(params[:tag])
-    @posts = Post.tagged_with(params[:tag])    
+    @tag = Tag.find(params[:id])
+    @users = @tag.users
+    # @posts = @tag.posts
   end
 
+  def new
+  end
+
+  def create
+  end
+
+  def edit
+  end
+
+  def update
+  end
+
+  def destroy
+  end
+
+  private
+    def tag_params
+      params.require(:tag).permit(:name, :tag_list)
+    end
 end

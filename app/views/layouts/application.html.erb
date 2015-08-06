@@ -8,7 +8,7 @@
 </head>
 <body>
   <header>
-    <div><a href="http:/dcfuture.com"><%= image_tag "http://dcfuture.com/wp-content/uploads/2014/03/DCFutureLogo1.png", alt: "DCFuture logo", class: "logo" %></a>
+    <div><a href="http://dcfuture.com"><%= image_tag "http://dcfuture.com/wp-content/uploads/2014/03/DCFutureLogo1.png", alt: "DCFuture logo", class: "logo" %></a>
       <h1 class="headline">Blog</h1></div>
       <nav class="main-nav">
         <%= link_to "About DCFuture", "http://dcfuture.com/about" %>
@@ -16,22 +16,20 @@
         <%= link_to "Links", "http://dcfuture.com/links/" %>
         <%= link_to "Contact", "http://dcfuture.com/contact/" %>
       </nav>
-      <ul class="social-icons">
-      		<li>
+      <div class="social-icons">
+
       		<a href="https://www.facebook.com/pages/DC-Future/1412989265627187" target="_blank">
       			<div>
       				<img src="http://dcfuture.com/wp-content/themes/mineral/images/icons/facebook.png" alt="">
       			</div>
       		</a>
-      	</li>
-      		<li>
       		<a href="https://twitter.com/DC_Future" target="_blank">
       			<div>
       				<img src="http://dcfuture.com/wp-content/themes/mineral/images/icons/twitter.png" alt="">
       			</div>
       		</a>
-      	</li>
-      		</ul>
+      </div>
+  </header>
       <nav class="blog-nav">
         <%= link_to "Members", users_path %>
         <% if session[:user] %>
@@ -45,7 +43,6 @@
         <%= link_to "New Post", new_post_path %>
         <%= link_to "Tags", tags_path %>
       </nav>
-  </header>
   <main>
     <h2><%= flash[:notice] %></h2>
     <div class="content">

@@ -15,13 +15,13 @@
     <div>Not a DC Voter</div>
   <% end %>
   </span>
-  <span id="fullname"><%= @user.full_name.split.map(&:capitalize).join(' ') %></span>
-  <span id="email"><%= @user.email %></span>
-  <span id="job"><%= @user.occupation_type %></span>
-  <span id="age"><%= @user.age %></span>
-  <span id="zip"><%= @user.zip %></span>
+  <div id="fullname">Name: <%= @user.full_name.split.map(&:capitalize).join(' ') %></div>
+  <div id="email">E-mail: <%= @user.email %></div>
+  <div id="job">Job: <%= @user.occupation_type %></div>
+  <div id="age">Age: <%= @user.age %></div>
+  <div id="zip">Zip Code: <%= @user.zip %></div>
 
-  <div class="tags">Interests: <%= raw @user.tag_list.map{ |t| link_to t, tag_path(t)}.join(', ') %></div>
+  <div class="tags">Interests: <%= raw @user.tags.map{ |t| link_to t.name, tag_path(t)}.join(', ') %></div>
 </div>
 
 <h2>Posts

@@ -4,8 +4,3 @@
 <% @users.each do |user| %>
   <h4><%= link_to "#{user.username}", user %></h4>
 <% end %>
-
-<h3>Posts with this Tag</h3>
-<% @posts.each do |post| %>
-  <h4><%= link_to "#{post.title}", post %></h4>
-<% end %>
