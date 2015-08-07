@@ -2,58 +2,68 @@
 <html>
 <head>
   <title>DCFuture Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-<span class="template">
-  <header>
-    <div><a href="http://dcfuture.com"><%= image_tag "http://dcfuture.com/wp-content/uploads/2014/03/DCFutureLogo1.png", alt: "DCFuture logo", class: "logo" %></a>
-    <div>
-      <h1 class="headline">Blog</h1></div>
-      <nav class="main-nav">
-        <%= link_to "About DCFuture", "http://dcfuture.com/about" %>
-        <%= link_to "Events", "http://dcfuture.com/events/" %>
-        <%= link_to "Links", "http://dcfuture.com/links/" %>
-        <%= link_to "Contact", "http://dcfuture.com/contact/" %>
-
-      <div class="social-icons">
-      		<a href="https://www.facebook.com/pages/DC-Future/1412989265627187" target="_blank">
-      			<div>
-      				<img src="http://dcfuture.com/wp-content/themes/mineral/images/icons/facebook.png" alt="", size="200px">
-      			</div>
-      		</a>
-      		<a href="https://twitter.com/DC_Future" target="_blank">
-      			<div>
-      				<img src="http://dcfuture.com/wp-content/themes/mineral/images/icons/twitter.png" alt="">
-      			</div>
-      		</a>
+  <div class="template">
+    <header>
+      <!-- Logo Image -->
+      <div class ="logo-container">
+        <a href="http://dcfuture.com">
+          <%= image_tag "http://dcfuture.com/wp-content/uploads/2014/03/DCFutureLogo1.png", alt: "DCFuture logo", class: "logo" %>
+        </a>
       </div>
+
+      <nav class="main-nav">
+        <ul>
+          <li><%= link_to "About DCFuture", "http://dcfuture.com/about" %></li>
+          <li><%= link_to "Events", "http://dcfuture.com/events/" %></li>
+          <li><%= link_to "Links", "http://dcfuture.com/links/" %></li>
+          <li><%= link_to "Contact", "http://dcfuture.com/contact/" %></li>
+          <li>
+            <a href="https://www.facebook.com/pages/DC-Future/1412989265627187" target="_blank">
+              <img src="http://dcfuture.com/wp-content/themes/mineral/images/icons/facebook.png" alt="", size="200px">
+            </a>
+          </li>
+          <li>
+            <a href="https://twitter.com/DC_Future" target="_blank">
+              <img src="http://dcfuture.com/wp-content/themes/mineral/images/icons/twitter.png" alt="">
+            </a>
+          </li>
+        </ul>
       </nav>
-    </div>
-  </header>
-  <main class="container">
-      <nav class="blog-nav">
-        <% if session[:user] %>
-          <a href="/sign_out"><%= session[:user]["username"] %>: Sign Out</a></h2>
-          <a href="/profile">My Profile</a>
-        <% else %>
-          <a href="/sign_up">Sign Up</a>
-          <a href="/sign_in">Sign In</a>
-        <% end %>
-        <br>
-        <%= link_to "Blog Home", root_url %>
-        <%= link_to "Members", users_path %>
-        <%= link_to "Posts", posts_path %>
-        <%= link_to "Create New Post", new_post_path %>
-        <%= link_to "Tags", tags_path %>
-      </nav>
-</span>
-    <h2><%= flash[:notice] %></h2>
-    <div class="content">
+    </header>
+  </div> <!-- Closes "template" -->
+
+  <!-- Blog Side Navigation -->
+  <nav class="blog-nav">
+    <ul>
+      <% if session[:user] %>
+        <li><a href="/sign_out"><%= session[:user]["username"] %>: Sign Out</a></li>
+        <li><a href="/profile">My Profile</a></li>
+      <% else %>
+        <li><a href="/sign_up">Sign Up</a></li>
+        <li><a href="/sign_in">Sign In</a></li>
+      <% end %>
+    </ul>
+    
+    <ul>
+      <li><%= link_to "Blog Home", root_url %></li>
+      <li><%= link_to "Members", users_path %></li>
+      <li><%= link_to "Posts", posts_path %></li>
+      <li><%= link_to "Create New Post", new_post_path %></li>
+      <li><%= link_to "Tags", tags_path %></li>
+    </ul>
+  </nav>
+
+  <h2><%= flash[:notice] %></h2>
+
+  <main class="content">
     <%= yield %>
-    </div>
   </main>
 </body>
 </html>

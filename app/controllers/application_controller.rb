@@ -8,7 +8,6 @@ class ApplicationController < ActionController::Base
     return User.find(session[:user]["id"]) if session[:user]
   end
 
-  private
   def authenticate
     if !session[:user]
       redirect_to "/sign_in"
