@@ -1,4 +1,4 @@
-/*
+
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
  *
@@ -14,14 +14,70 @@
  *= require_self
  */
 
- body {
-   font-family:'Georgia', serif;
-   margin: 0px;
-   width: 100%;
-   background: #BF0000;
- }
+/* Global */
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #BF0000;
+  font-family: 'Georgia', serif;
+  width: 100%;
+}
+
+ul {
+  list-style: none;
+}
+
+
+/* Site Content */
 
 header {
+  border-bottom: 2px solid #000000;
+  display: flex;
+  height: 250px;
+  width: 100%;
+}
+
+.logo-container {
+  width: 25%;
+}
+
+.logo {
+  height: 250px;
+}
+
+.main-nav {
+  width: 75%;
+}
+
+.main-nav ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.main-nav li {
+  background-color: #F6F6F6;
+  border: 1px solid #660000;
+  flex: 1 1 auto;
+  text-align: center;
+}
+
+.main-nav li a {
+  color: #333333;
+  text-decoration: none;
+}
+
+/*header {
   color: white;
   display: block;
   position: fixed;
@@ -35,11 +91,7 @@ header {
 }
 
 
-.logo {
-  float:left;
-  height: 250px;
-  width: 270px;
-}
+
 
 .headline {
   display: inline-flex;
