@@ -3,14 +3,18 @@
   <%= f.label :title %>
   <%= f.text_field :title, placeholder: "Title"  %>
 
-  <%= f.label :summary %>
-  <%= f.text_field :summary, placeholder: "Summary"  %>
+  <div class="form-summary">
+  <%= f.label :summary, "Summary: Roughly 3 sentences or 50 words" %>
+  <%= f.cktext_area :summary, placeholder: "Summary. Should be no longer than 3 sentences or ~50 words."  %>
+  </div>
 
+  <div class="form-body">
   <%= f.label :body %>
-  <%= f.cktext_area :body, placeholder: "Write the Body of Your Post Here", class: "formbody" %>
+  <%= f.cktext_area :body, placeholder: "Write the Body of Your Post Here" %>
+  </div>
 
   <%= f.label :section, "Choose a Section:" %>
-  <%= f.select :section, [['Issues','issues'],['Elections','elections'],['Government','government'],['DC', 'dc']], include_blank: true %>
+  <%= f.select :section, [['Issues','Issues'],['Elections','Elections'],['Government','Government'],['DC', 'DC']], include_blank: true %>
 
   <div class="field">
     <%= f.label :post_tag_list, "Tags (separated by commas)" %><br />

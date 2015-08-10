@@ -1,5 +1,5 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
+
+ /** This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
  *
  * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
@@ -8,45 +8,89 @@
  * You're free to add application-wide styles to this file and they'll appear at the bottom of the
  * compiled file so the styles you add here take precedence over styles defined in any styles
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
+ * file per style scope.*/
+
  *= require_tree .
  *= require_self
- */
 
- body {
-   font-family:'Georgia', serif;
-   margin: 0px;
-   width: 100%;
-   background: #BF0000;
- }
 
-header {
-  color: white;
-  display: block;
-  position: fixed;
+/* Global */
+
+ html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+       box-sizing: border-box;
+}
+
+ *, *:before, *:after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
   background: #BF0000;
-  top:0px;
-  left:0px;
+  font-family:'Georgia', serif;
   width: 100%;
-  height: 250px;
-  z-index: 1;
-  border-bottom: 2px solid #660000;
+}
+
+ul {
+  list-style: none;
+}
+
+p {
+  text-align: justify;
+  margin-bottom: 1em;
+}
+
+h2 {
+  font-weight: bold;
+  size: 3em;
+}
+
+h3 {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+h4 {
+  line-height: 0%;
 }
 
 
+/* Site Content - Wrapper */
+
+header {
+  background: #BF0000;
+  border-bottom: 2px solid #660000;
+  color: white;
+  display: inline-flex;
+  position: fixed;
+  top:0px;
+  left:0px;
+  height: 16em;
+  width: 100%;
+  z-index: 1;
+}
+
+.logo-container {
+  width: 25%;
+}
+
 .logo {
-  float:left;
-  height: 250px;
-  width: 270px;
+  display: inline;
+  height: 16em;
+  width: 100%;
 }
 
 .headline {
-  display: inline-flex;
-  text-align: center;
-  margin-left: 400px;
-  font-size: 8em;
-  line-height: 0px;
+  font-size: 7em;
+  font-weight: 900;
+  height: 50%;
+  margin: 0 auto;
+  position: absolute;
+  vertical-align: top;
+  width: 75%;
 }
 
 nav a {
@@ -60,79 +104,72 @@ nav a:hover {
 }
 
 .main-nav {
-  display: inline-block;
-  margin-right: 2em;
-  margin-left: 100px;
+  margin: 12em 5em 0 0;
   vertical-align: bottom;
+  width: 75%;
+}
 
+.main-nav ul {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: 75%;
+}
+
+.main-nav li {
+  flex: 1 1 auto;
 }
 
 .main-nav a {
-  display: inline-flex;
   height: 100%;
-  color: #333333;
+  color: #660000;
   background-color: #f6f6f6;
-  border: 1px solid black;
+  border: 2px solid #660000;
+  box-sizing: inherit;
   text-align: center;
   margin-bottom: 0;
-  margin-left: 50px;
+  margin-left: 5%;
   padding: .8em;
-}
-
-
-.social-icons {
-  display: inline-block ;
-  margin-bottom: 2em;
-}
-
-.social-icons a {
-  background: none;
-  border: none;
 }
 
 .blog-nav {
   display: inline-block;
-  width: 20%;
+  width: 25%;
   height: auto;
   position: fixed;
   background: #e6e6e6;
   border: 1px solid black;
-  padding: 10px;
-  margin-top: 250px;
-  margin-left: 10px;
+  padding: .7em;
+  margin-top: 18em;
   z-index: 1;
+}
+
+.blog-nav ul {
+  margin-bottom: 2em;
 }
 
 .blog-nav a {
   display: flex;
   color: #BF0000;
   font-size: 1.3em;
-  text-align: center;
   margin: 0;
   padding: .8em;
   box-sizing: border-box;
 }
 
-
 .content {
   display: inline-block;
   float: none;
-  width: 65%;
-  margin: 250px 10% 0 25%;
+  width: 70%;
+  margin: 18em 5% 0 0;
   background-color: #f6f6f6;
   color: #5E0000;
   border: 2px solid #660000;
   box-sizing: border-box;
   min-height: 50em;
   text-align: center;
-  padding: 1em;
-}
-
-.postcontent {
-  text-align: justify;
-  width: 80%;
-  margin: auto;
-  border-bottom-style: groove;
+  padding: 3em;
 }
 
 @media screen and (min-width:600px) {
@@ -151,17 +188,47 @@ nav a:hover {
   }
 }
 
-h2 {
-  font-weight: bold;
-  size: 3em;
+/* Site Content - Page Text */
+
+.frontpage-links {
+  display: block;
 }
 
-h4 {
-  line-height: 0%;
+.post, .comments, .profile, .posts {
+  width: 80%;
+  text-align: justify;
+  margin: auto;
+}
+
+.title-header, .user-header {
+  text-align: left;
+  width: 80%;
+  margin: auto;
+}
+
+.each {
+  margin: 2em 0 2em 0;
+  align-items: center;
+}
+
+.postcontent {
+  margin-top: 2em;
+  border-bottom-style: groove;
 }
 
 .blogsections {
   display: inline;
+  font-size: 1.5em;
+}
+
+.blogsections a {
+  margin: 0 2% 3em 2%;
+  padding: 10px;
+  border: 1px solid #660000;
+  text-decoration: none;
+  background-color: #BF0000;
+  color: #f6f6f6;
+  font-weight: 500;
 }
 
 .three-column {
@@ -176,7 +243,6 @@ h4 {
 
 #summary {
   display: block;
-  padding: 2em;
   font-size: 1.2em;
   border-bottom-style: groove;
   text-align: center;
@@ -189,7 +255,7 @@ h4 {
 
 input {
    display: block;
-   margin: 5px 0 20px 0;
+   margin-bottom: 2em;
    padding: 9px;
    font-size: 1em;
    width: 400px;
@@ -199,7 +265,7 @@ input {
 
 select {
   display: inline;
-  margin: 5px 0 20px 0;
+  margin-bottom: 2em;
   padding: 9px;
   font-size: 1em;
   width: 200px;
@@ -213,15 +279,8 @@ form {
   margin-left: 5%;
 }
 
-.formbody {
-  display: block;
-  margin: 5px 0 20px 0;
-  padding: 9px;
-  font-size: .9em;
-  width: 400px;
-  height: 150px;
-  border: solid 1px black;
-  background: #EEEEEE;
+.form-body, .form-summary {
+  margin-bottom: 2em;
 }
 
 input[type=submit],
@@ -232,4 +291,14 @@ a.delete{
   border: 0;
   font-size: 14px;
   color: #FFFFFF;
+}
+
+.summary {
+  width: 50%;
+  margin: auto;
+}
+
+.profile div, .profile img {
+  padding: .5em;
+  font-size: 1.3em;
 }

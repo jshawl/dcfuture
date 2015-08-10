@@ -1,13 +1,13 @@
-<h2 class="title-header"><%= @user.username %> </h2>
-
-<img class ="profile-pic" src="<%= @user.upload_pic %>" alt="No Pic">
-
-<div class="profile">
-  <span>Member since <%= @user.join_date %></span>
-
+<h2 class="user-header"><%= @user.username %>
   <% if @user == @current_user %>
     <%= link_to "Edit Profile", edit_user_path %>
   <% end %>
+</h2>
+
+ <div class="profile">
+  <img class ="profile-pic" src="<%= @user.upload_pic %>" alt="No Pic" />
+
+  <div>Member since <%= @user.join_date %></div>
   <span id="ward">
   <% if @user.dc_voter == "Yes" %>
     <div>Ward <%= @user.ward %> Voter</div>
@@ -24,16 +24,22 @@
   <div class="tags">Interests: <%= raw @user.tags.map{ |t| link_to t.name, tag_path(t)}.join(', ') %></div>
 </div>
 
-<h2>Posts
-<% if @user == @current_user %>
-  <%= link_to "(Add New Post)", new_post_path %>
-<% end %>
-</h2>
-<% @posts.each do |post| %>
-  <div class="post-each">
-  <h3><%= link_to "#{post.title}", post %></h3>
-    <span><%= post.timestamp %></span>
-    <span class="summary"><%= post.summary %></span>
-    <%= link_to "Go To Full Post...", post %>
-  </div>
-<% end %>
+<div class="posts">
+  <h2>Posts
+  <% if @user == @current_user %>
+    <%= link_to "(Add New Post)", new_post_path %>
+  <% end %>
+  </h2>
+  <ul>
+    <% @posts.each do |post| %>
+      <div class="each">
+        <li>
+        <h3><%= link_to "#{post.title}", post %></h3>
+          <span><%= post.timestamp %></span>
+          <span class="summary"><%= raw(post.summary) %></span>
+          <%= link_to "Go To Full Post...", post %>
+        </li>
+      </div>
+    <% end %>
+  </ul>
+</div>

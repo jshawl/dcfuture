@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   has_secure_password
   has_many :posts
   has_many :comments
-  has_many :user_tags
+  has_many :user_tags, dependent: :destroy
   has_many :tags, through: :user_tags
 
   def user_tag_list

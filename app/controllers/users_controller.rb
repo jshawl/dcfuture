@@ -24,7 +24,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find( params[:id] )
-    @current_user = User.find(session[:user]["id"])
+    @current_user = current_user
     @posts = @user.posts.order(:timestamp).reverse
   end
 
