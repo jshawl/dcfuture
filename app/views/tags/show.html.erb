@@ -1,11 +1,19 @@
 <h2 class="title-header"><%= @tag.name %> </h2>
 
+<ul class="users">
 <h3>Members with this Interest</h3>
 <% @users.each do |user| %>
-  <h4><%= link_to "#{user.username}", user %></h4>
+    <li>
+      <h4><%= link_to "#{user.username}", user %></h4>
+    </li>
 <% end %>
+</ul>
 
+<ul class="posts">
 <h3>Posts with this Tag</h3>
 <% @posts.each do |post| %>
-  <h4><%= link_to "#{post.title}", post %></h4>
+    <li>
+      <h4><%= link_to "#{post.title}", post %></h4>
+    </li>
 <% end %>
+</ul>

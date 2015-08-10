@@ -23,28 +23,34 @@
         </ul>
       </nav>
   </header>
-    <nav class="blog-nav">
-      <ul>
-        <% if session[:user] %>
-          <li><a href="/sign_out"><%= session[:user]["username"] %>: Sign Out</a></li>
-          <li><a href="/profile">My Profile</a></li>
-        <% else %>
-          <li><a href="/sign_up">Sign Up</a></li>
-          <li><a href="/sign_in">Sign In</a></li>
-        <% end %>
-      </ul>
 
-      <ul>
-        <li><%= link_to "Blog Home", root_url %></li>
-        <li><%= link_to "Members", users_path %></li>
-        <li><%= link_to "Posts", posts_path %></li>
-        <li><%= link_to "Create New Post", new_post_path %></li>
-        <li><%= link_to "Tags", tags_path %></li>
-      </ul>
-    </nav>
-  <h2><%= flash[:notice] %></h2>
+  <nav class="blog-nav">
+    <ul>
+      <% if session[:user] %>
+        <li><a href="/sign_out"><%= session[:user]["username"] %>: Sign Out</a></li>
+        <li><a href="/profile">My Profile</a></li>
+      <% else %>
+        <li><a href="/sign_up">Sign Up</a></li>
+        <li><a href="/sign_in">Sign In</a></li>
+      <% end %>
+    </ul>
+
+    <ul>
+      <li><%= link_to "Blog Home", root_url %></li>
+      <li><%= link_to "Members", users_path %></li>
+      <li><%= link_to "Posts", posts_path %></li>
+      <li><%= link_to "Create New Post", new_post_path %></li>
+      <li><%= link_to "Tags", tags_path %></li>
+    </ul>
+  </nav>
+
+  <h2 id="alert"><%= flash[:notice] %></h2>
   <main class="content">
     <%= yield %>
   </main>
+
+  <footer>
+    <div>&copy;2015. The DCFuture blog was built and is managed by <%=link_to "Jeremy Koulish", "http://jkoul.com" %>.</div>
+  </footer>
 </body>
 </html>

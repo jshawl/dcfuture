@@ -1,10 +1,12 @@
 <%= form_for([@user]) do |f| %>
 
-  <h4>Are You a DC Voter?</h4>
-  <%= f.radio_button :dc_voter, "Yes" %>
-  <%= f.label :dc_voter, "Yes", :value => 'Yes' %>
-  <%= f.radio_button :dc_voter, "No" %>
-  <%= f.label :dc_voter, "No", :value => 'No' %>
+  <div class="dcvoter">
+    <h4>Are You a DC Voter?</h4>
+    <%= f.radio_button :dc_voter, "Yes" %>
+    <%= f.label :dc_voter, "Yes", :value => 'Yes' %>
+    <%= f.radio_button :dc_voter, "No" %>
+    <%= f.label :dc_voter, "No", :value => 'No' %>
+  </div>
 
   <%= f.label :ward %>
   <%= f.number_field :ward, min: "1", max: "8", placeholder: "Ward" %>

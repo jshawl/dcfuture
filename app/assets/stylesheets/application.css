@@ -53,10 +53,6 @@ h3 {
   margin-bottom: 1em;
 }
 
-h4 {
-  line-height: 0%;
-}
-
 
 /* Site Content - Wrapper */
 
@@ -140,8 +136,8 @@ nav a:hover {
   position: fixed;
   background: #e6e6e6;
   border: 1px solid black;
+  margin-top: 1.5em;
   padding: .7em;
-  margin-top: 18em;
   z-index: 1;
 }
 
@@ -162,7 +158,7 @@ nav a:hover {
   display: inline-block;
   float: none;
   width: 70%;
-  margin: 18em 5% 0 0;
+  margin: 0 5% 0 0;
   background-color: #f6f6f6;
   color: #5E0000;
   border: 2px solid #660000;
@@ -188,13 +184,31 @@ nav a:hover {
   }
 }
 
+footer {
+  background-color: #600;
+  border-top: 5px solid #F6F6F6;
+  color: #FFF;
+  display: block;
+  font-size: 1.5em;
+  padding: 1em;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  margin-top: 3em;
+  z-index: 1;
+}
+
+footer a {
+  color: #FFF;
+}
+
 /* Site Content - Page Text */
 
 .frontpage-links {
   display: block;
 }
 
-.post, .comments, .profile, .posts {
+.post, .comments, .profile, .posts, .users {
   width: 80%;
   text-align: justify;
   margin: auto;
@@ -293,12 +307,39 @@ a.delete{
   color: #FFFFFF;
 }
 
+input[type=radio] {
+  display: inline;
+  width: 20px;
+}
+
+.dcvoter label {
+  margin-right: 8%;
+}
+
 .summary {
   width: 50%;
   margin: auto;
 }
 
+.tags {
+  margin-bottom: 2em;
+}
+
 .profile div, .profile img {
   padding: .5em;
   font-size: 1.3em;
+}
+
+.users {
+  margin-bottom: 3em;
+}
+
+#alert {
+  line-height: 1em;
+  height: 1em;
+  display: block;
+  margin-top: 11em;
+  color: white;
+  margin-left: 25%;
+  padding: 0;
 }
