@@ -3,9 +3,11 @@ class Post < ActiveRecord::Base
   belongs_to :user
   has_many :post_tags, dependent: :destroy
   has_many :tags, through: :post_tags
+  # excellent advanced associations here!
 
   def post_tag_list
     tags.map(&:name).join(", ")
+    # where did you learn this? AWESOME!!
   end
 
   def post_tag_list=(names)

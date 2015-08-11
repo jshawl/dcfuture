@@ -3,6 +3,7 @@ class PostsController < ApplicationController
 
   def index
     if params[:section]
+      # excellent!! ^^
       @posts = Post.where(:section => params[:section])
     else
       @posts = Post.all.order(:timestamp).reverse
@@ -15,7 +16,7 @@ class PostsController < ApplicationController
 
   def create
     @user = current_user
-    @post = @user.posts.create!( post_params )
+    @post = @user.posts.create!( post_params ) # or new...
     @post.update( timestamp: Time.now.strftime("%b %e %Y, %l:%M%P") )
     redirect_to (post_path(@post))
   end
@@ -24,6 +25,7 @@ class PostsController < ApplicationController
     @post = Post.find( params[:id] )
     @user = @post.user
     @current_user = current_user
+    # see comment in application controller about helpers.
   end
 
   def edit

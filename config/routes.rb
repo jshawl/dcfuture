@@ -17,6 +17,7 @@ root to: "home#index"
   get '/sign_up', to: 'users#sign_up'
   post '/sign_up', to: 'users#sign_up!'
   get '/sign_out', to: 'users#sign_out'
+  # could also do resources :sessions to be more rails-y
 
 end
 

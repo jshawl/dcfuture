@@ -21,5 +21,6 @@ def self.tag_post_counts
   Tag.select("tags.*, count(post_tags.tag_id) as count").
     joins(:post_tags).group("post_tags.tag_id")
 end
+# model methods look great!!!
 
 end

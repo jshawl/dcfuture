@@ -66,3 +66,5 @@ Tag.create(name: "Charles Allen")
 Tag.create(name: "Yvette Alexander")
 Tag.create(name: "LaRuby May")
 Tag.create(name: "Karl Racine")
+
+# awesome seeds!! I recommend adding in some of the associations here as well. this will simplify testing in the future.

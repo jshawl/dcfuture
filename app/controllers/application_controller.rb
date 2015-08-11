@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
   def current_user
     return User.find(session[:user]["id"]) if session[:user]
   end
+  # you might want to create a current_user helper so you can use this in the view as well.
 
   private
   def authenticate

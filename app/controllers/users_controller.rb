@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate, only: [:new, :create, :edit, :update, :destroy]
+  # could also use a before action to find the user and set the instance variable.
 
 #CRUD functionality
   def index
